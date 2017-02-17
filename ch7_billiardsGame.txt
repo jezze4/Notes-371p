@@ -1,0 +1,43 @@
+Chapter 7: A Billiards Game
+
+7.1 ELEMENTS OF BILLIARDS
+	mouse position, energy of ball once hit, change direction when collide against wall or other.
+
+
+7.2 GRAPHICAL OBJECTS
+			graphical objects
+				link field and field saying the space it occupies  on screen	
+
+	7.2.1 THE WALL GRAPHICAL OBJECT
+			drawing of the wall
+			conversion factor = 0 or pi depending on orientation of wall. used to change direction of collided ball
+
+	7.2.2 THE HOLE GRAPHICAL OBJECT
+			hole struck by ball
+				if cue ball, placed back into play in a fixed location
+				else, it's another ball. energy -> 0. placed in special display area
+				
+	7.2.3 THE BALL GRAPHICAL OBJECT
+			direction (radians) (initial = 0)
+			energy (real value) (initial = 0)		
+			method: update. updates position of ball
+			updates to hitting walls, holes, or other balls
+			hit another ball: energy of first is split and half is given to 2nd ball
+				also changes angle
+				
+				
+7.3 THE MAIN PROGRAM
+			control is decentralized into different classes/objects
+			mouse click provides energy, then passed into interaction of balls
+			
+7.4 USING INHERITANCE
+			defining a general class for "graphical objects" 
+				includes walls, holes, and balls
+			ball, wall, hole as subclasses of GraphicalObject
+			virtual and abstract
+				not defined in parent class but must be redefined in child class
+			virtual but not abstract
+				such as update: declared in ball class, but not other two
+			graphical objects can now be kept in a single linked list
+			polymorphism
+				one function call might result in many different function bodies being invoked

@@ -1,0 +1,79 @@
+Chapter 8: Inheritance and Substitution
+
+8.1 AN INTUITIVE DESCRIPTION OF INHERITANCE
+			inheritance
+				behavior and data of child class are an extension (larger set) of parent class
+			contraction
+	
+	8.1.1 THE IS-A TEST
+			if "is-a" sounds right, it's most likely an inheritance situation
+	
+	8.1.2 REASONS TO USE INHERITANCE
+			2 motivations to use it
+				- code reuse reduces amount of code written
+				- concept reuse. overriding methods. no shared code, but share definition of method
+				
+	**public, private, and protected
+			public: accessible code outside of class definition
+			private: accessible only inside of class definition
+			protected:  accessible only within class definition or definition within child classes
+				introduced in c++ (C#, Delphi, Ruby, and several others)
+				
+				
+8.2 INHERITANCE IN VARIOUS LANGUAGES
+			advantage of having a root parent class
+				every class/object has common minimal level of functionality
+			disadvantage
+				all classes are coupled together
+				
+				
+8.6 FORMS OF INHERITANCE
+			Specialization
+					the child class is a special case of the parent class
+					in other words, the child class is a subtype of the parent class
+			Specification
+					the parent class defines behavior that is implemented in the child class but not in the parent class
+			Construction
+					the child class makes use of the behavior provided by the parent class
+					it is not a subtype of the parent class
+			Generalization
+					child class modifies/overrides some methods of the parent class
+			Extension
+					child class adds new functionality to the parent class
+					does not change any inherited behavior
+			Limitation
+					child class restricts use of some of the behavior inherited from parent class
+			Variance
+					child class and parent class are variants of each other
+					class-subclass relationship is arbitrary
+			Combination
+					child class inherits features from more than one parent class
+					multiple inheritance
+			
+					
+8.8 THE BENEFITS OF INHERITANCE
+	
+	8.8.1 SOFTWARE REUSABILITY
+	
+	8.8.2 CODE SHARING
+	
+	8.8.3 CONSISTENCY OF INTERFACE
+	
+	8.8.4 SOFTWARE COMPONENTS
+	
+	8.8.5 RAPID PROTOTYPING
+	
+	8.8.6 POLYMORPHISM AND FRAMEWORKS
+	
+	8.8.7 INFORMATION HIDING
+	
+	
+8.9 COSTS OF INHERITANCE
+	
+	8.9.1 EXECUTION SPEED
+	
+	8.9.2 PROGRAM SIZE
+	
+	8.9.3 MESSAGE-PASSING OVERHEAD
+	
+	8.9.4 PROGRAM COMPLEXITY
