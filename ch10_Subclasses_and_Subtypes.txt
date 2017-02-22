@@ -1,0 +1,58 @@
+					CHAPTER 10: SUBCLASSES AND SUBTYPES
+	
+10.0 Prelogue
+	-subclass
+		- asserts that one class has been built using inheritance of another class
+		- built using an existing class as basis
+			- in Java: using -extends-
+	-subtype
+					
+10.1 Substitutability
+	- in static OOP languages, the type associated with a -value- held by variable may not match type associated with -declaration- for that variable
+		- in Billiards Case Study, a GraphicalObject held value of type Ball, Wall, or Hole
+		- Integer can never hold a String though
+	- Substitution (Subsumption)
+		- variable declared as a parent class can hold a value that in instance of child class
+		
+10.2 Subtypes
+	- types
+		- hold certain values
+			- int can hold 2^(-31) to 2^(31)-1		(-2,147,483,648 to 2,147,483,647)
+		- can perform certain operations
+			- (int can perform add, subtract, multiply, division)
+		- satisfy properties
+			- ints can't hold fractional values so it truncates them
+	- abstract data type (ADT)
+		- stack
+			- in Java, first step of use of ADT is definition of an interface
+	
+	--SYNTAX VERSUS SEMANTICS--
+		- syntax deals with how statements can be written
+		   just as subclasses deal with how a class is declared
+		- semantics deals with what a statement means
+		   just as subtypes deal with how a child class preserves meaning of parent class
+	
+	-subtype
+		- a new class is subtype of existing class
+			- assert new class provides all existing class operations and furthermore satisfies properties associated with the class
+			
+	--TYPES ARE A POOR MAN'S SPECIFICATIONS--
+		-types used to eliminate typing errors
+		-advantages of types
+			- they are useful approximation
+			- simple to explain
+			- easy to check
+		- formal specification difficult to write and explain
+		- types by comparison almost trivial for compiler to check
+		
+10.3 The Substitutability Paradox
+
+10.4 Subclassing for Construction
+
+10.5 Dynamically Typed Languages
+
+*10.6 Pre- and Postconditions
+
+*10.7 Refinement Semantics
+	- refinement
+		- child class adds to behavior but does not replace it
