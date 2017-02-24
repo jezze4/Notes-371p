@@ -32,7 +32,7 @@
 		- semantics deals with what a statement means
 		   just as subtypes deal with how a child class preserves meaning of parent class
 	
-	-subtype
+	- subtype
 		- a new class is subtype of existing class
 			- assert new class provides all existing class operations and furthermore satisfies properties associated with the class
 			
@@ -46,10 +46,37 @@
 		- types by comparison almost trivial for compiler to check
 		
 10.3 The Substitutability Paradox
+	- recalling Chapter 8 regarding substitutability for statically typed object-oriented languages
+		- a child class inherits all the data fields defined in the parent class
+		- a child class must recognize all the behaviors associated with the parent class
+			-either inheriting them directly or overriding them but preserving the type signature
+		- therefore, an instance of child class can be used in any situation where an instance of the parent class is expected
+			- with no observable difference
+	- the halting problem
+		- asserts that there's no procedure that can, generally, tell if an arbitrary program will ever terminate
+		- corollary: there's no procedure that can determine, in general, if two programs have equivalent behavior
+			- impossible to tell, in general, if a method in a child class matches behavior of the method in the parent class
+	- paradox of substituting
+		- statically typed obj-oriented languages only requires that the type of a value is a SUBCLASS of type of variable being assigned. though it only makes sense if value was a SUBTYPE of variable
+			- languages do try to keep subclasses as subtypes
+				- programmers not permitted to delete inherited methods
+				- not permitted to change type signature of method inherited from parent
+	
+	10.3.1 Is This a Problem?
+		- not common, but is very annoying and erroneous, when modifying the subclass in way that changes properties without changing type signature.
 
 10.4 Subclassing for Construction
+	- subclasses  are created that are not subtypes when inheritance is used purely for code reuse
+	
+	*10.4.1 Private Inheritance in c++
+		- private inheritance
+			- using keyword -private- in class header instead of -public-
+			- as with normal, facilities of parent are accessible in new class
+			- unlike normal, abilities of parent are not accessible of class definition
 
 10.5 Dynamically Typed Languages
+	- protocol
+		- set of operations that a variable must recognize
 
 *10.6 Pre- and Postconditions
 
