@@ -1,0 +1,28 @@
+					THE LISKOV SUBSTITUTION PRINCIPLE
+					
+Introduction
+	- open-closed principle recap
+		- building code that is maintainable and reusable
+		- add new features by adding new code, instead of changing already working code
+		- primary mechanisms are abstraction and polymorphism
+			- inheritance in statically typed languages like C++
+			
+The Liskov Substitution Principle (LSP)
+	**Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it**
+	- if there is a function that does not follow LSP
+		- it uses pointers/references to a base class, but must know about all derivates of base class
+			- violation of open-closed principle since it must be modified with new derivative of base
+	
+A Simple Exchange of a Violation of LSP
+	- most common violation: use of C++ Run-Time Type Information (RTTI) to select function based upon type of an object
+		ex: 
+			void DrawShape(const Shape& s){
+				if (typeid(s) == typeid(Square))
+					DrawSquare(static_cast<Square&>(s));	//functions like DrawSquare((Square&)s);
+				else if (typeid(s) == typeid(Circle))			//but more stringent rules
+					DrawCircle(static_cast<Circle&>(s));		//make it safer to use
+			}
+	- function is badly formed since it must know about every possible derivative of the Shape class
+	
+Square and Rectangle, a More Subtle Version
+	
