@@ -1,0 +1,99 @@
+What will be on the test: (* = i need to learn!)
+          C++ Types
+                    - bool
+                    - char
+                    - double
+                    - float
+                    - forward_list                ***	(singly-linked list)
+                    - int
+                    - istream
+                    - istream_iterator        ***
+                    - istringstream
+                    - list
+                    - long
+                    - ostream
+                    - ostream_iterator       ***
+                    - ostringstream
+                    - short
+                    - vector
+                    
+          C++ Operators
+                    -  -
+                    -  -=
+                    -  !
+                    -  []
+                    -  *
+                    -  *=			***		(multiplication! of course)
+                    -  /
+                    -  /=
+                    -  &&
+                    -  &
+                    -  &=			***		(compound assignment by AND)
+                    -  >>
+                    -  >>=		***		(compound assignment by right shift)
+                    -  <<
+                    -  <<=		***		(compound assignment by left shift)
+                    -  %
+                    -  %=
+                    -  ^			***		(bitwise XOR)
+                    -  ^=			***		(compound assignment by XOR)
+                    -  +
+                    -  +=
+                    -  =
+                    -  |			***		(bitwise OR)
+                    -  |=			***		(compound assignment by OR)
+                    -  ||
+                    -  ~			***		(bitwise NOT)
+
+          C++ algorithms
+                    - accumulate	***
+                    - all_of
+                    - copy
+                    - equal
+                    - fill
+                    - reverse		***
+                    - sort		***
+                    - transform	***
+          
+          C++ concepts
+                    - #include
+                    - assertions
+                    - bidirectional iterator
+                    - capture by reference
+                    - capture by value
+                    - catch
+                    - cin
+                    - class templates
+                    - closures					***
+                    - const pointers
+                    - cout
+                    - exceptions
+                    - foward iterator
+                    - function templates		***
+                    - input iterator
+                    - iteration
+                    - iterators
+                    - l-values
+                    - lambdas				***
+                    - nested classes
+                    - operators
+                    - output iterator
+                    - pass by address
+                    - pass by reference
+                    - pass by value
+                    - r-values
+                    - random access iterator
+                    - recursion
+                    - return by address
+                    - return by reference
+                    - return by value
+                    - structs
+                    - throw
+                    - try
+                    - using
+          
+          C++ tokens
+                    - "*" on a type
+                    - "*" on a variable
+                    - "&" on a type
+                    - "&" on a variable
