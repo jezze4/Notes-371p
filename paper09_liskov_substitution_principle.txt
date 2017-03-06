@@ -1,0 +1,125 @@
+					THE LISKOV SUBSTITUTION PRINCIPLE
+					
+Introduction
+	- open-closed principle recap
+		- building code that is maintainable and reusable
+		- add new features by adding new code, instead of changing already working code
+		- primary mechanisms are abstraction and polymorphism
+			- inheritance in statically typed languages like C++
+			
+The Liskov Substitution Principle (LSP)
+	**Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it**
+	- if there is a function that does not follow LSP
+		- it uses pointers/references to a base class, but must know about all derivates of base class
+			- violation of open-closed principle since it must be modified with new derivative of base
+	
+A Simple Exchange of a Violation of LSP
+	- most common violation: use of C++ Run-Time Type Information (RTTI) to select function based upon type of an object
+		ex: 
+			void DrawShape(const Shape& s){
+				if (typeid(s) == typeid(Square))
+					DrawSquare(static_cast<Square&>(s));	//functions like DrawSquare((Square&)s);
+				else if (typeid(s) == typeid(Circle))			//but more stringent rules
+					DrawCircle(static_cast<Circle&>(s));		//make it safer to use
+			}
+	- function is badly formed since it must know about every possible derivative of the Shape class
+	
+Square and Rectangle, a More Subtle Version
+	- analyzing following class
+		class Rectangle {
+			public:
+				void SetWidth (double w) 	{itsWidth=w;}
+				void SetHeight (double h) 	{itsHeight=w;}
+				double GetHeight () const	{return itsHeight;}
+				double GetWidth () const 	{return itsWidth;}
+			private:
+				double itsWidth;
+				double itsHeight;
+		};
+		
+	- a Square can be derived out of this class using ISA relationship since a square is technically a rect.
+		- wasteful since a square only needs one measure for the side, instead of two for rect.
+		- inherited SetWidth and SetHeight functions useless for square
+		- overriding SetWidth and SetHeight in Square class to change both variables can help
+			- however, consider
+				void f (Rectangle& r){
+					r.SetWidth(32);	//calls Rectangle::SetWidth
+				}
+			- passing Square by reference won't modify height and violates LSP
+				- can be fixed by changing in Rectangle class:
+					- void SetWidth 	-> virtual void SetWidth
+					- void SetHeight 	-> virtual void SetHeight
+
+The Real Problem
+	void g (Rectangle& r){
+		r.SetWidth(5);
+		r.SetHeight(4);
+		assert(r.GetWidth() * r.GetHeight()) == 20);
+	}
+	
+	- issue when passing a Square when functions reasonably assume a rectangle
+	- there are functions that take pointers and references to Rectangle objects
+		- these functions violate LSP
+		- adding Square derivate of Rectangle broke the functions, violating Open-Closed principle
+		
+Validity is not Intrinsic
+	- do not focus on validity of design in isolation. view what others might assume and do with design
+	
+What Went Wrong? (w^3)
+	- a square might be a rectangle, but a Square obj does not -->BEHAVE<-- like a Rectangle obj
+		- software is about behavior
+	- in order for LSP to hold, along with Open-Closed princ., all derivatives must confrom to behavior that clients expect of the base classes they use
+	
+Design by Contract
+	- methods of classes declare pre-conditions and post-conditions
+		- pre-conditions true before methods executes
+		- post-conditions true after completion of method
+		
+		** ... when redefining a routin [in a derivative], you may only replace its precondition by a weaker one, and postcondition by a stronger one**
+		
+		- example using Rectangle::SetWidth (double w)
+			assert((itsWidth == w) && (itsHeight == old.itsHeight));
+		- languages like Eiffel have support precondition and postcondition that aid in runtime
+		- C++ does not. but can be manually inserted in each method
+			- may be useful to document post- and pre-conditions in comments for each method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		

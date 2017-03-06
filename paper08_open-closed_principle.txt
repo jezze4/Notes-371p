@@ -1,0 +1,77 @@
+THE OPEN-CLOSED PRINCIPLE
+
+	- Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification
+				
+DESCRIPTION
+	- 2  primary attributes
+	- 1. open for extension
+		can be extended; new and different behaviors depending on application needs
+	- 2. closed for modification
+		cannot change source code
+		
+ABSTRACT IS KEY
+
+	- wrong: 	CLIENT:-----------SERVER
+		- bothes classes concrete; Client class USES Server class
+		- If Client needs different server object, Client must be changed.
+	- correct:	CLIENT:-----------ABSTRACT SERVER <-------------SERVER
+		- AbstractServer class is abstract with virtual member functions.
+		- Client class uses the abstraction
+		- If Client needs different server class, new AS class is created. Client unchanged
+			
+THE SHAPE ABSTRACTION
+	- Listing 1: does not use open-closed prin.
+	- Square and Circle are made through structs
+		- adding a new shape means modifying the function, adding cases
+	- Listing 2: conforms
+		- asbstract Shape class created with function Draw()
+		- Square and Circle derivatives of Shape
+		- to add new shape, just add new derivative to Shape class
+			
+STRATEGIC CLOSURE
+	- no significant program 100% closed; since can't be completely closed, it must be strategic
+		
+	USING ABSTRACTION TO GAIN EXPLICIT CLOSURE
+		- ordering abstraction (for given example)
+			- given any two objects, it's possible to discover which to draw first
+				- define method Precedes if shape should be drawn before shape passed as argument
+				- Iterator, Set, OrderedSet can be used from relative order of shapes
+			- even with overriding, does not conform to o-c principle
+			- not closed against adding new Shape derivative
+		
+	USING "DATA-DRIVEN" APPROACH TO ACHIEVE CLOSURE
+		- table-driven approach for closure
+			- not closed against order of shapes on table
+		
+	EXTENDING CLOSURE EVEN FURTHER
+		- Shape hierarchy closed; DrawAllShapes function closed
+		- Shape deriv. not closed against ordering policies that have nothing to do with shape type
+			- for some other reading
+
+HEURISTICS AND CONVENTIONS
+	MAKE  ALL MEMBER VARIABLES PRIVATE
+		- member variables of classes should only be known to methods in the class that define them
+		- not even know to derived class
+		- PRIVATE, not PUBLIC or PROTECTED
+		- Encapsultion
+			- any other class, even subclasses are closed against changes to member variables of a class
+		- member variable that would never change: reason to make it PRIVATE?
+			- PUBLIC does no harm
+			- still to big of a risk against a mal-user
+			- certain PUBLIC variables
+				- no overriding reason to make PRIVATE
+				- considered bad STYLE... not bad DESIGN
+					- bad style, since member functions can be easily created
+		
+	NO GLOBAL VARIABLES -- EVER
+		- modules with globals can't be closed against other modules that will write to that global
+		- considered bad style, though some cases, globals with few dependents will do little harm
+		- cases where global convenience is needed over style violation, as long is it conforms to o-c principle
+			
+	RTTI IS DANGEROUS (Run Time Type Identification)
+		- dyanamic_cast
+		- if use of RTTI does not violate o-c principle, then ok to use
+		
+CONCLUSION
+	- Open-closed principle leads to reusability and maitainability
+	- job of designer to provide abstraction in parts of program subject to change

@@ -1,0 +1,100 @@
+					﻿THE INTERFACE SEGREGATION PRINCIPLE
+
+INTRODUCTION
+	- Dependency Inversion Principle (DIP)
+		- modules that encapsulate high level policy should not depend on modules that implement details.
+			- both should depend upon abstractions
+		- concrete and abstract classes should not depend on each other.
+		- in example, class containing details depend upon class containing abstraction
+	- Interface Segregation Principle (ISP)
+		- deals with disadvantages of "fat" interfaces (interfaces that are not cohesive)
+			- in other words, interfaces of the class can be broken up into groups of member functions
+		- clients should only know about abstract base classes with cohesive interfaces
+			- abstract bases classes: "interfaces", "protocols", or "signatures"
+
+
+INTERFACE POLLUTION
+	- Figure 1
+		| TimerClient | <---- | Door | <---- | TimedDoor |
+		- Problems
+			- Door class now depends on TimerClient
+			- not all Doors need a timer
+			- if derivatives without timing are created, nil implementations of TimeOut method needed
+				- applications using that door need #include TimerClient class, even though it's not used.
+			
+				
+SEPERATE CLIENTS MEAN SEPERATE INTERFACES
+	
+	THE BACKWARDS FORCE APPLIED BY CLIENTS UPON INTERFACES
+		- adding a timeoutID to TimerClient class to track multiple timeouts implemented.
+		- adding the fix causes the door class and its derivatives to recompile :O even when unrelated
+		
+	BUT IT'S JUST A RECOMPILE
+		- can be expensive
+		- new object module
+		- the more dynamically linked libraries (DLLs) affected by change, the greater the problem of managing the change
+
+
+THE INTERFACE SEGREGATION PRINCIPLE (ISP)
+	** clients should not be forced to depend upon interfaces that they do not use **
+		- when they end up deending upon them, then clients are subject to changes to those interfaces
+		- issue of coupling
+		- clients that do use the interface will be affected by changes other clients force upon the class
+		
+	CLASS INTERFACES VS OBJECT INTERFACES
+		- TimeDoor has two separate interfaces use by two separate clients (Time, and users of Door)
+		- How to separate interfaces when they must remain together and comform to ISP?
+			- dont need access to it through interface of the object
+			- instead, they can access it through:
+				- delegation
+				- a base class of the object
+				
+	SEPARATION THROUGH DELEGATION
+		- object form of ADAPTER pattern
+			- adapter derives from TimerClient and delegates to TimedDoor
+				| Door | <---- | TimedDoor | ------- | DoorTimerAdapter | ----> | TimerClient |
+				
+				class TimedDoor : public Door {
+					public:
+						virtual void DoorTimeOut (int timeOutId);
+				};
+					
+				class DoorTimerAdapter : public TimerClient {
+					public:
+						DoorTimerAdapter (TimedDoor& theDoor)
+						: itsTimedDoor (theDoor)
+						{}
+						
+						virtual void TimeOut (int TimeOutId)
+						{itsTimedDoor.DoorTimeOut (timeOutId) ;}
+						
+					private:
+						TimedDoor& itsTimedDoor;
+				}
+				
+		- solution inelegant
+			- creation of new object every time register a timeout
+			- adapter requires non-zero amount of runtime and memory
+				- creates an issue in some situations
+				
+	SEPARATION THROUGH MULTIPLE INHERITANCE
+		- class form of the ADAPTER pattern
+		| Door | ----> | TimedDoor | <---- | TimerClient |
+		
+			class TimedDoor : public Door, public TimerClient {
+				public:
+					virtual void TimeOut (int timeOutId) ;
+			};
+			
+		- preferred method.
+		
+
+THE ATM USER INTERFACE EXAMPLE
+
+	... is this part even worth noting? it's just a bunch of code and examples
+	
+
+CONCLUSION
+	- got rid of "fat" interfaces by making use of the ADAPTER pattern
+		- delegation (object form)
+		- multiple inheritance (class form)

@@ -1,0 +1,8 @@
+message passing = method lookup
+
+static languages
+		java, c++, c#, Pascal
+		
+dynamic languages
+		Python, Smalltalk, CLOS
+		objective-c can be both
