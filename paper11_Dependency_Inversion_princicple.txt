@@ -1,0 +1,18 @@
+				Dependency Inversion Principle
+				
+A. HIGH LEVEL MODULES SHOULD NOT DEPEND UPON LOW LEVEL MODULES. BOTH SHOULD DEPEND UPON ABSTRACTIONS.
+
+B. ABSTRACTIONS SHOULD NOT DEPEND UPON DETAILS. DETAILS SHOULD DEPEND UPON ABSTRACTIONS
+
+"all well structured object-oriented architectures have clearly-defined layers, with each layer providing some coherent set of services though a well-defined and controlled interface" - Booch
+
+Dependency is transitive
+
+Seperating Interface from Implementation in c++
+	In C++ however, there is no separation between interface and implementation. Rather, in C++, the
+	separation is between the definition of the class and the definition of its member functions
+		- .h module
+			- contains definition of the class
+		- .cc module
+			- contains definition of class's member functions
+		

@@ -1,0 +1,62 @@
+					Static and Dynamic Behavior
+
+Intro
+	- static: almost always refers to property or feature bound at compile time and cannot be changed afterward
+	- dynamic: almost always refers to property/feature that cannot be bound until runtime
+
+11.1 Static vs Dynamic Typing
+	- in static, a type is attached to variable at compile time.
+		- type inference (ML) type associated with variable is inferred from the program
+	- in dynamic, types associated with values and not variables.
+	- static = efficiency		dynamic = flexibility
+
+11.2 Static and Dynamic Classes
+	- static class: of variable, the class used at declaration of variable
+	- dynamic class: of variable, class associated with value it currently holds
+	* in a statically typed OOP language, the legality of a message-passing expression is determined at compile time based on the static class of the receiver and not on its current dynamic value*
+	
+	11.2.1 Run-time Type Declaration
+		- to determine if a value curently being held by a variable declared with one class type is derived from  a class that is lower in teh class hierarchy, move a value down the inheritance hierarchy. 
+		
+	11.2.2 Down casting (reverse polymorphism)
+		- after determining a value is from a given class, converting the value from the parent class to the child class -> down casting / reverse polymorphism
+		
+	11.2.3 Run-time Testing without Language Support
+		- simulating from the RTTI system: dynamic_cast
+		
+		Animal * aPet = ...;
+		Dog * aDog;
+		aDog = aPet.isDog();	//try the assignment
+		if(aDog); ...			// true if it was a dog, false otherwise
+		
+		dyanimc_cast use
+		Animal * aPet = ...;
+		Dog * d = dynamic_cast<Dog *>(aPet);
+		if(d != 0) {		// null if not legal, nonnull if ok
+		... }
+		
+	11.2.4 Testing message Understanding
+		- for dynamic typed languages
+		- way to test if a receiver will understand a particular message before attempting to pass message to receiver
+		- Example: Ruby
+			
+			if aPet.respond_to?("bark") ...
+
+11.3 Static vs Dynamic Method Binding
+	- polymorphic variable: binding of messsage to a method is determined by the type associated with teh value most recently assigned to teh variable
+		- all variables in SmallTalk, Java, and most other OOP languages are)
+		- variables in C++ that are declared with a simple type are not polymorphic
+	- in C++, object values referenced by pointers are polymorphic
+		- only works when associated methods are declared as virtual
+		
+		Animal a;
+		Animal * b;
+		Dog d;
+		d.speak();
+	     woof!
+	     	a = d;
+	     	a.speak();
+	     Animal speak!
+	     	b = &d;
+	     	(*b).speak();	// or b->speak();
+	     woof!

@@ -1,0 +1,8 @@
+void g () {
+    my_allocator<double, 150> x;
+    double* p = x.allocate(5);
+    double* q = x.allocate(3);
+    double* r = x.allocate(3);
+    x.deallocate(q);
+    cout << x[0]   << " ";
+    cout << x[146] << endl;}
