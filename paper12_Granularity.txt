@@ -1,0 +1,52 @@
+		GRANULARITY
+
+Reprise
+	- Open-Closed Principle (OPC)
+		- software modules designed to be reusable/maintainable.
+	- Liskov Substitutino Principle (LSP)
+		- system of constraints for the use of public inheritance (C++)
+	- Dependency Inversion Principle (DIP)
+		- modules that implement high-level policy should not depend upon modules that implement low-level details
+	- Interface Segregation Principle (ISP)
+		- deals with incohesive interfaces ("fat" interfaces) with too much info
+
+Granularity
+	- larger granule for organization
+		Booch: 			class category
+		Meyer: 			clusters
+		Coad: 			subject areas
+		Shlaer/Mellor:	Domains
+	**	UML .9:			packages
+
+Designing with Packages
+
+	THE REUSE/RELEASE EQUIVALENCE PRINCIPLE (REP)
+	********
+		THE GRANULE OF REUSE IS THE GRANULE OF RELEAES. ONLY COMPONENTS THAT ARE RELEASED THROUGH A TRACKING SYSTEM CAN BE EFFECTIVELY REUSED. THIS GRANULE IS THE PACKAGE
+	********
+	
+		- code copy != code copy
+			- you own the copy so you have to fix bugs
+		- code reuse IF AND ONLY IF there's no need to look at source code
+
+
+	THE COMMON REUSE PRINCIPLE (CRP)
+	********
+		THE CLASSES IN A PACKAGE ARE REUSED TOGETHER. IF YOU REUSE ONE OF THE CLASSES IN A PACKAGE, YOU REUSE THEM ALL
+	********
+
+		- when there's an update to a package, applications that use the package should be revalidated to work with that package (DLL)
+
+
+	THE COMMON CLOSURE PRINCIPLE (CCP)
+	********
+		THE CLASSES IN A PACKAGE SHOULD BE CLOSED TOGETHER AGAINST TEH SAME KINDS OF CHANGES. A CHANGE THAT AFFECTS A PACKAGE A PACKAGE AFFECTS ALL TEH CLASSES IN THAT PACKAGE
+	********
+
+		- changes made in a package should not require other packages to be updated as well (maintainability)
+
+
+	THE ACYCLIC DEPENDENCIES PRINCIPLE (ADP)
+	********
+		THE DEPENDENT STRUCTURE BETWEEN PACKAGES MUST BE A DIRECTED ACYCLIC GRAPH (DAG). THAT IS, THERE MUST BE NO CYCLES IN THE DEPENDENCY STRUCTURE
+	********
