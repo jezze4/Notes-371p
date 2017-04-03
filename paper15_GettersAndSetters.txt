@@ -1,0 +1,34 @@
+Why Getter and Setter Methods are Evil
+
+On The Nature of Design
+	- understand how dangerous a feature can be to better decide to use it or not
+
+Data Abstraction
+	- an object should not expose any of its implementation details
+	- data abstraction
+		- hide the way in which an obj implements a message handler from the rest of the program
+		- data members should be PRIVATE
+	- can you make big changes to a class definition (even discard and replace the whole thing) without impacting any of the code that uses that class's object?
+
+	**don't ask for the information you need to do the work**
+	**ask the object that has the information to do the work for you**
+
+	- writing private fields but providing public accessor methods is NOT OOP
+
+Draw Thyself
+
+JavaBeans
+	- BeanCustomizer, BeanInfo, BeanDescripter classes used to build JavaBeans without using getters and setters
+
+When is an Accessor Okay?
+	- when you return an object in terms of an interface that object implements. you still protect the external code that uses the object through its interface
+
+A Design Strategy
+	- Class
+		- the name of a class of objects
+	- Responsibilities
+		- What those objects can do
+		- these responsibilities should focuso on a single area of expertise
+	-  Collaborators
+		- other classes of objects that can talk to the current class of objects
+		this set should be as small as possible
