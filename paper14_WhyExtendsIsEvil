@@ -1,0 +1,17 @@
+Why Extends is Evil
+
+Interfaces versus Classes
+	- implementation inheritance (extends) < interface inheritance (implements)
+Losing Flexibility
+	- rather than implement features you might need, you implement only the features you definitely need.
+		LinkedList list --> Collection list = new LinkedList();
+Coupling
+	- undesirable reliance of one part of a program on another part
+	- object's instance variables should always be PRIVATE
+The Fragile base-class problem
+	- when using EXTENDS, the derived classes are very tightly coupled to the base class which is undesirable
+	- one solution is to override methods that lead to unwanted effects
+		- have it throw an exception
+	- eliminate fragile base classes by using interfaces
+Frameworks
+	- half-baked classes that depend on derived classes for complete functionality (Java's Component's paint() method
