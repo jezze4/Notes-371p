@@ -1,0 +1,34 @@
+What Should We Teach
+
+The Problem
+	- "We don't teach programming, we teach computer science"
+
+But My Computer Hasn't Crashed Lately
+	- 
+
+The Academia/Industry Gap
+	- industry
+		- hire 'developers' fully trained in the lastest tools and techniques
+		- systems with millions of lines of code
+		- several people work on projects
+		- rely on reliable techniques, but also want breakthrough applications
+		- min skill/interchangeable devs + "visionaries" without regard to code
+	- academia
+		- ambition is to produce more and better professors
+		- CS graduates will most likely not write a program with over 1000 lines
+		- often discourages teamwork
+		- work with like-minded people
+		- work on theories / crafting designs and techniques for idealized probs.
+
+Dreams of Professionalism
+	- CS is about uses of computers and about ways of working and thinking that involves computation ("algorithmic and quantitative thinking")
+		- science + math + engineering, using computers
+	- mastery of the CORE of CS
+		- algorithms
+		- data structures
+		- machine architecture
+		- programming (principled)
+		- some math (for proof-based and quantitative thinking)
+		- systems (operating systems and databases)
+	- many organizations taht rely crtically on computing have become dangerously low on technical skills
+	- "The in-sourcing of technical expertise is critical for survival"

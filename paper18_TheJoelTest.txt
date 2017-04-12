@@ -1,0 +1,68 @@
+The Joel Test
+
+- a test to rate the quality of a software team
+- 1 pt per "yes"
+	- 12 -> perfect
+	- 11 ->  tolerable
+	- <= 10 -> serious problems 
+
+1. Do you understand source control?
+	- "CVS is fine" 
+	- source control for other programmers to know what the others did
+	- source code is checked out on each hard drive
+		- no total lose of code
+
+2. Can you make a build in one step?
+	- good: a single script that does: 
+		- full checkout from scratch
+		- rebuilds every line of code
+		- makes the EXEs in all their versions, languages, and #ifdef combinations
+		- creates installation package
+		- creates final media (CDROM, download, or w/e)
+	- more than one step => prone to errors
+
+3. Do you make daily builds? 
+	- daily builds to insure no breakage goes unnoticed
+
+4. Do you have a bug database?
+	- no bug database -> low quality code
+	- must include:
+		- complete steps to reproduce the bug
+		- expected behavior
+		- observed (buggy) behavior
+		- who it's assigned to
+		- whether it has been fixed or not
+
+5. Do you fix bugs before writing new code?
+	- "indefinite defects methodology" : checklist of features waiting to be turned into bugs
+	- fixing code soon takes less time
+	- easier to predict how long it will take to write new code than fix existing bug
+	- schedule with bugs to fix = unreliable
+	- schedule with new code = more accurate
+
+6. Do you have an up-to-date schedule?
+	- schedules cut out less important features
+
+7. Do you have a spec?
+	- easily maintainable code... unlike Mozilla before alpha or Netscape
+
+8. Do programmers have quiet working conditions?
+	- getting in "the zone" for maximum productivity 
+	- programmers working in distraction-free environments.. even from each other
+	- takes about 15 minutes to resume being productive after a distraction
+
+9. Do you use the best tools money can buy?
+		- slow compiling code -> boredom - > distractions -> hours of prod. lost
+	- top notch development teams don't torture their programmers
+		- bad tools -> unhappy/grumpy programmers -> unproductive
+
+10. Do you have testers?
+	- save money and time by having dedicated testers per 2 programmers
+
+11. Do new candidates write code during their interview?
+	- make candidates write code instead of asking trivial questions that can be easily searched up
+
+12. Do you do hallway usability testing?
+	- grab the next person that passes in the hallway and force them to try to use the code you just wrote
+		- at least 5 people -> learn ~95% of what there is to learn about usability problems in your code
+	- showing user interface design to 5-6 people, you quickly discover the biggest problems people are having
